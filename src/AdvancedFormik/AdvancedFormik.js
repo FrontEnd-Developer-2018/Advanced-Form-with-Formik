@@ -41,12 +41,12 @@ import { ArrowBack, Fab } from '@material-ui/core';
 import ArrowBackTwoToneIcon from '@material-ui/icons/ArrowBackTwoTone';
 
 import {
-  circuitOptions,
-  equipementOptions,
-  checkPointOptions,
-  critereOptions,
+  circuitOptions_data,
+  equipementOptions_data,
+  checkPointOptions_data,
+  critereOptions_data,
   getOptions,
-  roleOptions,
+  roleOptions_data,
 } from './helper';
 
 const styles = (theme) => ({
@@ -94,7 +94,6 @@ const DialogTitle = withStyles(styles)((props) => {
 export default function AdvancedFormik() {
   const dispatch = useDispatch();
 
-  //const { usines } = useSelector((state) => state.usineList);
   const usines = [
     {
       id: '1',
@@ -107,13 +106,16 @@ export default function AdvancedFormik() {
     },
   ];
 
-  Const[(circuitOptions, setCircuitOptions)] = useState(
-    getOptions(circuitOptions)
+  //const { usines } = useSelector((state) => state.usineList);
+  const [circuitOptions, setCircuitOptions] = useState(
+    getOptions(circuitOptions_data)
   );
-
+  /*
   const configCircuit = useSelector(
     (state) => state.configCircuit.configCircuit
   );
+  */
+  const configCircuit = circuitOptions;
   const checkPoints = configCircuit.checkpointList;
   const checkPointOptions = checkPoints
     ? getOptions(checkPoints)
@@ -125,14 +127,6 @@ export default function AdvancedFormik() {
       ];
 
   const circuits_lst = configCircuit.circuitList;
-  const circuitOptions = circuits_lst
-    ? getOptions(circuits_lst)
-    : [
-        {
-          id: 1,
-          name: '',
-        },
-      ];
 
   const equipements_lst = configCircuit.equipementList;
   const equipementOptions = equipements_lst
@@ -343,7 +337,7 @@ export default function AdvancedFormik() {
                         onChange={(option, meta) => {
                           formik.setFieldValue('circuit', option);
                         }}
-                        options={circuitOptions}
+                        options={circuitOptions_data}
                         ref={circuitRef}
                         value={formik.values.circuit}
                       />
@@ -367,7 +361,7 @@ export default function AdvancedFormik() {
                           // HandleChangeSite(option, meta);
                           formik.setFieldValue('role', option);
                         }}
-                        options={roleOptions}
+                        options={roleOptions_data}
                         value={formik.values.role}
                       />
                       {formik.errors.role && formik.touched.role ? (
@@ -511,7 +505,7 @@ export default function AdvancedFormik() {
                                                     option
                                                   );
                                                 }}
-                                                options={equipementOptions}
+                                                options={equipementOptions_data}
                                                 placeholder={
                                                   <div
                                                     style={{ fontSize: '14px' }}
@@ -614,7 +608,7 @@ export default function AdvancedFormik() {
                                                                           );
                                                                         }}
                                                                         options={
-                                                                          checkPointOptions
+                                                                          checkPointOptions_data
                                                                         }
                                                                         placeholder={
                                                                           <div
@@ -764,7 +758,7 @@ export default function AdvancedFormik() {
                                                                                               );
                                                                                             }}
                                                                                             options={
-                                                                                              critereOptions
+                                                                                              critereOptions_data
                                                                                             }
                                                                                             placeholder={
                                                                                               <div

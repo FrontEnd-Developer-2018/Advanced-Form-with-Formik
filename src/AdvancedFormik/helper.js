@@ -1,4 +1,4 @@
-export const circuitOptions = [
+export const circuitOptions_data = [
   {
     value: 1,
     label: 'circuit 1',
@@ -18,7 +18,7 @@ export const circuitOptions = [
   },
 ];
 
-export const roleOptions = [
+export const roleOptions_data = [
   {
     value: 1,
     label: 'Opérateur',
@@ -30,7 +30,7 @@ export const roleOptions = [
   },
 ];
 
-export const equipementOptions = [
+export const equipementOptions_data = [
   {
     value: 1,
     label: 'equipementOptions 1',
@@ -50,7 +50,7 @@ export const equipementOptions = [
   },
 ];
 
-export const checkPointOptions = [
+export const checkPointOptions_data = [
   {
     value: 1,
     label: 'checkPointOptions 1',
@@ -70,7 +70,7 @@ export const checkPointOptions = [
   },
 ];
 
-export const critereOptions = [
+export const critereOptions_data = [
   {
     value: 1,
     label: 'critereOptions 1',
